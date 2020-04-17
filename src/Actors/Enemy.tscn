@@ -163,14 +163,14 @@ animation = "walk"
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=14]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=16]
+[sub_resource type="AnimationNodeStateMachine" id=15]
 states/death/node = SubResource( 6 )
 states/death/position = Vector2( 812, 253 )
 states/hurt/node = SubResource( 7 )
@@ -179,14 +179,14 @@ states/idle/node = SubResource( 8 )
 states/idle/position = Vector2( 524, 253 )
 states/walk/node = SubResource( 9 )
 states/walk/position = Vector2( 524, 130 )
-transitions = [ "idle", "hurt", SubResource( 10 ), "hurt", "idle", SubResource( 11 ), "idle", "death", SubResource( 13 ), "idle", "walk", SubResource( 14 ), "walk", "idle", SubResource( 15 ) ]
+transitions = [ "idle", "hurt", SubResource( 10 ), "hurt", "idle", SubResource( 11 ), "idle", "death", SubResource( 12 ), "idle", "walk", SubResource( 13 ), "walk", "idle", SubResource( 14 ) ]
 start_node = "idle"
 end_node = "death"
 graph_offset = Vector2( 19, 76 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 13.3366, 18.1331 )
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -197,7 +197,7 @@ position = Vector2( -0.716019, -0.706909 )
 texture = ExtResource( 1 )
 flip_h = true
 hframes = 19
-frame = 11
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.951294, 3.09175 )
@@ -210,10 +210,10 @@ anims/idle = SubResource( 4 )
 anims/walk = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 16 )
+tree_root = SubResource( 15 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 17 )
+parameters/playback = SubResource( 16 )
 
 [node name="HurtboxArea" type="Area2D" parent="." groups=[
 "hurtbox",
@@ -222,4 +222,4 @@ script = ExtResource( 3 )
 
 [node name="Hurtbox" type="CollisionShape2D" parent="HurtboxArea"]
 position = Vector2( -0.716965, 3.22638 )
-shape = SubResource( 18 )
+shape = SubResource( 17 )

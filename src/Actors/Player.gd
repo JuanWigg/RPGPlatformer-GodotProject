@@ -4,17 +4,16 @@ var state_machine
 
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
-	get_viewport().audio_listener_enable_2d = true
-	$AudioStreamPlayer2D.play()
+
 	
 	
 func _on_Att1Hit_area_entered(area):
 	if area.is_in_group("hurtbox"):
-		area.take_damage(1)
+		area.take_damage(2)
 
 func _on_Att2Hit_area_entered(area):
 	if area.is_in_group("hurtbox"):
-		area.take_damage(2)
+		area.take_damage(1)
 
 	
 func _physics_process(delta):
@@ -79,8 +78,8 @@ func calculate_move_velocity(
 func hurt():
 	state_machine.travel("hurt")
 	
-func die():
-	state_machine.travel("die")
+func death():
+	state_machine.travel("death")
 	set_physics_process(false)
 	
 func attack1():

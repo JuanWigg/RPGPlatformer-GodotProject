@@ -1,4 +1,5 @@
 extends Node2D
 
 func _ready():
-	pass
+	get_viewport().audio_listener_enable_2d = true
+	$AudioStreamPlayer2D.play()
