@@ -4,19 +4,25 @@ var state_machine
 
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
+	get_viewport().audio_listener_enable_2d = true
+	$AudioStreamPlayer2D.play()
 	
 	
-func _on_AxeHit_area_entered(area):
+func _on_Att1Hit_area_entered(area):
 	if area.is_in_group("hurtbox"):
-		area.take_damage()
-	
+		area.take_damage(1)
+
+func _on_Att2Hit_area_entered(area):
+	if area.is_in_group("hurtbox"):
+		area.take_damage(2)
+
 	
 func _physics_process(delta):
 
 	var direction := get_direction()
 	
 	if Input.is_action_pressed("run"):
-		var plus = Vector2(speed.x * 1.5, speed.y)
+		var plus = Vector2(speed.x * 2, speed.y)
 		velocity = calculate_move_velocity(velocity, direction, plus)
 	else:
 		velocity = calculate_move_velocity(velocity, direction, speed)	
@@ -55,7 +61,7 @@ func calculate_move_velocity(
 		if linear_velocity.length() == 0:
 			state_machine.travel("idle")
 		else:
-			if speed.x>0 and speed.x<=300:
+			if speed.x>0 and speed.x<=150:
 				state_machine.travel("walk")
 			else:
 				state_machine.travel("run")
@@ -82,3 +88,6 @@ func attack1():
 	
 func attack2():
 	state_machine.travel("attack2")
+
+
+
