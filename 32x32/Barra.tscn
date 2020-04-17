@@ -4,9 +4,11 @@
 [ext_resource path="res://Barra.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1, 2.50578 )
+extents = Vector2( 1, 2.5 )
 
-[node name="Barra" type="Area2D"]
+[node name="Barra" type="KinematicBody2D" groups=[
+"barras",
+]]
 position = Vector2( 0, 0.0659714 )
 scale = Vector2( 1, 2 )
 script = ExtResource( 2 )
@@ -15,4 +17,5 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.0329857 )
 shape = SubResource( 1 )

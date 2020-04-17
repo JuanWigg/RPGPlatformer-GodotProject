@@ -1,18 +1,28 @@
 extends KinematicBody2D
 
-var velocity = 2
+var speed = 20
+var direction = Vector2()
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	randomize()
+	set_start_position()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	var colission = move_and_collide(direction * delta)
+	if colission:
+		direction = direction.bounce(colission.normal)
+		if colission.collider.is_in_group("barras"):
+			pass
+
+func set_start_position():
+	var rand_x = 1
+	if randi()%10 <5:
+		rand_x = -1
+	direction = Vector2(rand_x,rand_range(-1,1))
+	direction = direction.normalized() * speed
 	
-	pass
+	
+
+func gol():
+	position = Vector2(16,16) 
+	set_start_position()

@@ -6,16 +6,13 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 0.915046
 
-[node name="Pelota" type="KinematicBody2D"]
+[node name="Pelota" type="KinematicBody2D" groups=[
+"pelota",
+]]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 15.4132, 15.811 )
-texture = ExtResource( 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 15.361, 15.7966 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
