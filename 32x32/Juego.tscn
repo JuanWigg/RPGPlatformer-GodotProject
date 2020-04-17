@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Barra.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Pelota.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego.gd" type="Script" id=3]
+
+[node name="Juego" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 32.0
+margin_bottom = 32.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Barra" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1, 16 )
+
+[node name="Barra2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 31, 16 )
+rotation = 3.14159
+
+[node name="Pelota" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1, 1 )
