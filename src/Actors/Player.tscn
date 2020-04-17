@@ -336,7 +336,7 @@ scale = Vector2( 1.05463, 1.02543 )
 texture = ExtResource( 2 )
 vframes = 10
 hframes = 7
-frame = 67
+frame = 5
 
 [node name="Att1Hit" type="Area2D" parent="PlayerSprite"]
 position = Vector2( 24.2242, 26.8002 )
@@ -369,7 +369,7 @@ anims/run = SubResource( 11 )
 anims/walk = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -30.3323, -67.4955 )
+position = Vector2( -31.1685, -45.3351 )
 current = true
 zoom = Vector2( 0.3, 0.4 )
 
