@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=2]
 
-[ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/leñador/melee.gd" type="Script" id=1]
 [ext_resource path="res://assets/WoodCutterSheet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -22,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.14, 0.22, 0.31 ),
+"times": PoolRealArray( 0, 0.08, 0.14, 0.22, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 7, 8, 9, 10, 12 ]
@@ -326,7 +326,7 @@ graph_offset = Vector2( 119.175, -164.079 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=51]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="melee" type="KinematicBody2D"]
 position = Vector2( 34.5565, 11.069 )
 script = ExtResource( 1 )
 
@@ -336,7 +336,7 @@ scale = Vector2( 1.05463, 1.02543 )
 texture = ExtResource( 2 )
 vframes = 10
 hframes = 7
-frame = 5
+frame = 63
 
 [node name="Att1Hit" type="Area2D" parent="PlayerSprite"]
 position = Vector2( 24.2242, 26.8002 )
@@ -344,7 +344,6 @@ position = Vector2( 24.2242, 26.8002 )
 [node name="HitboxAtt1" type="CollisionShape2D" parent="PlayerSprite/Att1Hit"]
 position = Vector2( -8.98044, -29.249 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Att2Hit" type="Area2D" parent="PlayerSprite"]
 
@@ -354,7 +353,7 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -35.0553, -11.5328 )
+position = Vector2( -34.8616, -11.5328 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
